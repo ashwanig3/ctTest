@@ -10,18 +10,18 @@ class Receipt {
     this.multipleMonths = this.addMultipleReciepts(this.userData);
 
     this.monthName = {
-      1: 'January',
-      2: 'February',
-      3: 'March',
-      4: 'April',
+      1: 'Jan',
+      2: 'Feb',
+      3: 'Mar',
+      4: 'Apr',
       5: 'May',
       6: 'June',
       7: 'July',
-      8: 'August',
-      9: 'September',
-      10: 'October',
-      11: 'November',
-      12: 'December',
+      8: 'Aug',
+      9: 'Sep',
+      10: 'Oct',
+      11: 'Nov',
+      12: 'Dec',
     };
 
     this.node.innerHTML += this.monthsData
@@ -40,9 +40,9 @@ class Receipt {
             </div>
             <div>
               <span class="side-bar">Receipt No: ${i + 1}</span>
-              <span class="side-bar">Date: ${monthData.endDate.getDate()}-${
+              <span class="side-bar">Date: ${monthData.endDate.getDate()} ${
           this.monthName[monthData.endDate.getMonth()]
-        }-${monthData.endDate.getFullYear()} </span>
+        } ${monthData.endDate.getFullYear()} </span>
             </div>
           </div>
           <p>Received sum of INR Rs.${monthData.monthlyRent} from ${
@@ -50,7 +50,11 @@ class Receipt {
         } towards the rent of property located at ${
           monthData.houseAddress
         } for the
-          period from ${monthData.startDate} to ${monthData.endDate}
+          period from ${monthData.startDate.getDate()} ${
+          this.monthName[monthData.startDate.getMonth()]
+        } ${monthData.startDate.getFullYear()} to ${monthData.endDate.getDate()} ${
+          this.monthName[monthData.endDate.getMonth()]
+        } ${monthData.endDate.getFullYear()}
           </p>
           <div class="regard">
               <span>${monthData.ownerName}</span>

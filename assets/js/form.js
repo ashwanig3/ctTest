@@ -11,7 +11,7 @@ class Form {
         <input value="Gururaj Singh" type="text" required name="ownerName" placeholder="Owner's name">
         <input value="CTUPK1324" type="text" required name="ownerPAN" placeholder="owner's PAN">
         <label for="start">Start Date</label>
-        <input value="2018-02-01" type="date" required name="startDate" id="start">
+        <input value="2018-02-01"  " type="date" required name="startDate" id="start">
         <label for="end">End Date</label>
         <input value="2018-05-01" type="date" required name="endDate" id="end">
         <button>Submit</button>
@@ -26,8 +26,6 @@ class Form {
         }
         return acc;
       }, {});
-
-      console.log(userData);
       var userInfo = new Receipt(userData);
       this.node.replaceChild(userInfo.node, this.form);
     });
