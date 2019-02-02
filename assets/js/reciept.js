@@ -2,8 +2,6 @@ class Receipt {
   constructor(data) {
     this.userData = data;
     this.node = document.createElement('div');
-    this.singleReceipt = document.createElement('div');
-    this.singleReceipt.classList.add('single-receipt');
     this.node.classList.add('receipt-container');
     this.monthsData = [];
 
@@ -23,10 +21,10 @@ class Receipt {
       11: 'Nov',
       12: 'Dec',
     };
-
+    this.node.innerHTML = `<button class="print-btn">Print</button>`;
     this.node.innerHTML += this.monthsData
       .map((monthData, i) => {
-        return (this.singleReceipt.innerHTML = `
+        return `
         <div class="receipt-item">
             <div class="receipt-header-wrapper">
             <div>
@@ -61,9 +59,14 @@ class Receipt {
               <span>PAN: ${monthData.ownerPAN}</span>
           </div>
         </div>
-  `);
+  `;
       })
       .join('');
+
+    this.node.addEventListener('click', function(e) {
+      if (e.target.className !== 'print-btn') return;
+      window.print();
+    });
   }
   add30Days(initialDate) {
     var finalDate = new Date(initialDate);
